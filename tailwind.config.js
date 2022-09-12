@@ -11,7 +11,8 @@ module.exports = {
         'e1':'#E1E1E1',
         'ebe':'#EBEBEB',
         'f3':'#F3F1F7',
-        'spot':'#1DB954'
+        'spot':'#1DB954',
+        'gre':'#003500'
       },
       fontFamily:{
         'poppins':['Poppins','Sans']

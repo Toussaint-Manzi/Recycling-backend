@@ -1,4 +1,4 @@
-import ppp from '../img/pp.jpeg'
+import ppp from '../img/pp.jpeg';
 import Navbar from "./Navbar";
 import Footer from './Footer';
 
@@ -82,8 +82,6 @@ const Home = () => {
                     <h1 className='text-center text-greeen'>Kicukiro</h1>
                     <h1 className='text-center'>+250 788569631</h1>
                 </div>
-            {/* </div> */}
-            {/* <div className="flex justify-center"> */}
                 <div className="card1 w-200 h-250 rounded bg-white shadow-md m-10">
                     <div className="w-180 h-100 transform translate-x-2.5 -translate-y-8">
                         <img src={ppp} alt="b,nm." className="bg-pp w-180 h-100 object-cover shadow-xl "/>
