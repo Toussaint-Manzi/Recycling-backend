@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Contact from "./components/Contact";
 import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
+import Request from "./components/Request";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="register" element={<Signup />} />
           <Route path="admin" element={<Dashboard />} />
+          <Route path="admin/requests" element={<Request />} />
       </Routes>
     </BrowserRouter>
   );
