@@ -16,7 +16,7 @@ const Signup = () => {
   const [ district,setDistrict ] = useState("");
   const [ city,setCity ] = useState("");
   const [ streetNumber,setStreet ] = useState("");
-  const [errorMsg , setErrorMsg ] = useState("");
+  const [msg , setMsg ] = useState("");
 
   // const [ loading,setLoading ] = useState(true);
 
@@ -36,13 +36,16 @@ const Signup = () => {
       iscollector:true
     }
     try {
-      const res = await axios.post('https://powerful-everglades-87307.herokuapp.com/api/collector/register',user);
+      const res = await axios.post('https://damp-castle-67289.herokuapp.com/api/collector/register',user);
       // setErrorMsg(res.message[0]);
       console.log(res);
-      if (res.status === 200) return setErrorMsg(res.data.body)
+      if (res.status === 200) {
+        setMsg(res.data.body);
+        console.log(msg);
+      } 
     } catch (error) {
-      setErrorMsg(((error.response.data.message).split("."))[0]);
-      console.log(errorMsg);
+      setMsg(((error.response.data.message).split("."))[0]);
+      console.log(msg);
     }
 
 
@@ -53,18 +56,14 @@ const Signup = () => {
 
   return (
 
-    <div className="h-screen bg-f3">
+    <div className="h-full bg-f3">
       <Navbar/>
-      <div className="relative ">
-        <div className="flex flex-row ">
-            <div className='flex-1 bg-f3'></div>
-            <div className="flex-1 bg-white"></div>
-        </div>
-        <div className="w-300  text-black h-full py-3 mx-auto  mt-20 bg-white rounded shadow-lg ">
+      <div className="h-full bg-f3 pb-20">
+        <div className="w-300  text-black h-full py-3 mx-auto mt-20 bg-white rounded shadow-lg ">
           <p className='text-xl py-3 font-bold text-center'>Fab<span className='text-l text-spot font-light'>waste</span></p>
           <h1 className="text-md text-greeen text-bold px-5">Register</h1>
-          <div className="mt-20  mx-20" >
-            {errorMsg && <h1 className="text-red-700">{errorMsg}</h1>}
+          <div className="mt-10 mx-10">
+            {msg && <h1 className="text-red-700">{msg}</h1>}
             {/* <input type="text" required placeholder="Enter username" name="username" className="w-full h-40 text-sm bg-f3 rounded px-5 mb-2"></input> */}
             <input type="text" required placeholder="Enter firstname" value={firstName} onChange={(e)=> setFirstname(e.target.value)} className="w-full h-40 text-sm bg-f3 px-5 rounded text-black mb-2" />
             <input type="text" required placeholder="Enter lastname" value={lastName} onChange={(e)=> setLastname(e.target.value)} className="w-full h-40 text-sm bg-f3 px-5 rounded text-black mb-2" />
